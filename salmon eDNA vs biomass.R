@@ -12,7 +12,8 @@ library(zoo)
 library(gridExtra)
 library(gratia)
 library(corrplot)
-
+library(mgcViz)
+library(viridis)
 
 seqtabNoC_WP2A_12S_tax_long_meta_clean_filtered <- read_csv("WP2A_ASV_table_long_filtered_family.csv")
 
@@ -449,7 +450,7 @@ plot_abundances_heatmap<-ggplot(heatmap_data, aes(x = Site, y = Date_sampled, fi
   geom_tile(width = 1.1, height = 1.1)+  
   labs(x = "Site", y = "Date Sampled") +  
   theme_minimal() +  
-  scale_fill_gradient(low = "#56B4E9", high = "#E69F00")+
+  scale_fill_viridis(discrete=FALSE) +
   scale_y_date(date_breaks = "1 month", date_labels = "%b %Y") +
   ylab(NULL) +
   xlab(NULL)+labs(fill = "Column\nnormalised value")+
